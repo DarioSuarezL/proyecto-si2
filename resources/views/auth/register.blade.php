@@ -4,7 +4,7 @@
     <div class="w-full max-w-md space-y-8">
     <div>
         <img class="mx-auto h-12 w-auto" src="{{asset("electrical-energy.png")}}" alt="Your Company">
-        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Ingresar al sistema</h2>
+        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Crear cuenta de cliente</h2>
     </div>
 
     <form class="mt-8 space-y-6" action="{{route('register.store')}}" method="POST" novalidate>
@@ -23,7 +23,19 @@
         @enderror
 
         <div>
-            <input id="email-address" name="email" type="email" autocomplete="email" required class="relative block w-full appearance-none rounded-none rounded-t-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('email') border-red-700 @enderror" placeholder="Correo electrónico" value="{{old('email')}}">
+            <input id="ci" name="ci" type="text" autocomplete="ci" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('ci') border-red-700 @enderror" placeholder="Número de cédula de identidad" value="{{old('ci')}}">
+        </div>
+        @error('ci')
+            <p class=" text-red-600 flex p-2 gap-2 items-center"> 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+                <span>{{$message}}</span>
+            </p>
+        @enderror
+
+        <div>
+            <input id="email-address" name="email" type="email" autocomplete="email" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('email') border-red-700 @enderror" placeholder="Correo electrónico" value="{{old('email')}}">
         </div>
         @error('email')
         <p class=" text-red-600 flex p-2 gap-2 items-center"> 
@@ -35,7 +47,19 @@
         @enderror
 
         <div>
-            <input id="password" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none rounded-b-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('email') border-red-700 @enderror" placeholder="Contraseña">
+            <input id="phone" name="phone" type="text" autocomplete="phone" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('phone') border-red-700 @enderror" placeholder="Número de teléfono" value="{{old('phone')}}">
+        </div>
+        @error('phone')
+            <p class=" text-red-600 flex p-2 gap-2 items-center"> 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+                <span>{{$message}}</span>
+            </p>
+        @enderror
+
+        <div>
+            <input id="password" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('email') border-red-700 @enderror" placeholder="Contraseña">
         </div>
         <div>
             <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none rounded-b-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('email') border-red-700 @enderror" placeholder="Repita la contraseña">

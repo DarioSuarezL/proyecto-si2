@@ -7,21 +7,37 @@
         <img class="mx-auto h-12 w-auto" src="{{asset("electrical-energy.png")}}" alt="Your Company">
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Ingresar al sistema</h2>
     </div>
-    <form class="mt-8 space-y-6" action="#" method="POST">
+
+    <form class="mt-8 space-y-6" action="{{route('login.store')}}" method="POST" novalidate>
+        @csrf
         <div class="-space-y-px rounded-md shadow-sm">
         <div>
-            <label for="email-address" class="sr-only">Email address</label>
-            <input id="email-address" name="email" type="email" autocomplete="email" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" placeholder="Correo electrónico">
+            <input id="email-address" name="email" type="email" autocomplete="email" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" placeholder="Correo electrónico" value="{{old('email')}}">
         </div>
+        @error('email')
+        <p class=" text-red-600 flex p-2 gap-2 items-center"> 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <span>{{$message}}</span>
+        </p>
+        @enderror
+
         <div>
-            <label for="password" class="sr-only">Password</label>
             <input id="password" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" placeholder="Contraseña">
         </div>
         </div>
 
         <div class="text-sm">
-            <a href="#" class="font-medium text-blue-500 hover:text-blue-700">Olvidé mi contreña</a>
+            <a href="#" class="font-medium text-blue-500 hover:text-blue-700">Olvidé mi contraseña</a>
         </div>
+
+        {{-- en caso de errores al iniciar sesión --}}
+        @if (session('message')) 
+        <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+            {{session('message')}}
+        </p>
+        @endif
 
         <div>
         <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
@@ -36,6 +52,7 @@
         </div>
     </form>
     
+
     <div class="text-sm text-center">
         <a href="/register" class="font-medium text-blue-500 hover:text-blue-700">Crear nueva cuenta de usuario</a>
     </div>
