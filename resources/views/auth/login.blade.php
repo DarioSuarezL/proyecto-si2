@@ -5,7 +5,7 @@
     <div class="w-full max-w-md space-y-8">
     <div>
         <img class="mx-auto h-12 w-auto" src="{{asset("electrical-energy.png")}}" alt="Your Company">
-        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Ingresar al sistema</h2>
+        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-white">Ingresar al sistema</h2>
     </div>
 
     <form class="mt-8 space-y-6" action="{{route('login.store')}}" method="POST" novalidate>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="text-sm">
-            <a href="#" class="font-medium text-blue-500 hover:text-blue-700">Olvidé mi contraseña</a>
+            <a href="#" class="font-medium text-blue-300 hover:text-white">Olvidé mi contraseña</a>
         </div>
 
         {{-- en caso de errores al iniciar sesión --}}
@@ -54,7 +54,7 @@
     
 
     <div class="text-sm text-center">
-        <a href="/register" class="font-medium text-blue-500 hover:text-blue-700">Crear nueva cuenta de usuario</a>
+        <a href="/register" class="font-medium text-blue-300 hover:text-white">Crear una cuenta de usuario</a>
     </div>
 
     </div>

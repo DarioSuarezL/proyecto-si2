@@ -4,7 +4,7 @@
     <div class="w-full max-w-md space-y-8">
     <div>
         <img class="mx-auto h-12 w-auto" src="{{asset("electrical-energy.png")}}" alt="Your Company">
-        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Crear cuenta de cliente</h2>
+        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-white">Crear cuenta de cliente</h2>
     </div>
 
     <form class="mt-8 space-y-6" action="{{route('register.store')}}" method="POST" novalidate>

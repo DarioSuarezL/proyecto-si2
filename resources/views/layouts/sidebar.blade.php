@@ -15,13 +15,13 @@
         @vite(['resources/css/app.css','resources/css/app.scss','resources/js/app.js'])
 
     </head>
-    <body class="bg-gray-700">
+    <body class="">
 
-        <header class="p-3 border-b bg-blue-900 shadow-md text-center">
-            <h1 class="text-3xl font-black text-white">ElectroServicios</h1>
-        </header>
-
-        @yield('contents')
+        {{-- TRABAJO EN PROGRESO, POR HACER:
+            CREAR UN SIDEBAR
+            CREAR LAS FUNCIONES DE LOGOUT
+            CREAR MENU DESPLEGABLE PARA PERFIL
+            --}}
 
     </body>
 </html>
