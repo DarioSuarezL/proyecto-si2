@@ -23,6 +23,6 @@ class LoginController extends Controller
             return back()->with('message','El correo o las contraseñas son incorrectas');
         }
 
-        return redirect()->route('profile.index');
+        return redirect()->route('dashboard');
     }
 }

@@ -32,7 +32,12 @@ class RegisterController extends Controller
             'phone' => $request->phone,
         ]);
 
-        return redirect()->route('profile.index');
+        auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        return redirect()->route('dashboard');
 
     }
 
