@@ -7,13 +7,25 @@
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-white">Crear cuenta de cliente</h2>
     </div>
 
-    <form class="mt-8 space-y-6" action="{{route('register.store')}}" method="POST" novalidate>
+    <form class="mt-8 space-y-6" action="{{route('register.store')}}" method="POST" novalidate enctype="multipart/form-data">
         @csrf
     <div class="-space-y-px rounded-md shadow-sm">
         <div>
-            <input id="name" name="name" type="name" autocomplete="name" required class="relative block w-full appearance-none rounded-none rounded-t-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('name') border-red-700 @enderror" placeholder="Nombre completo" value="{{old('name')}}">
+            <input id="name" name="name" type="name" autocomplete="name" required class="relative block w-full appearance-none rounded-none rounded-t-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('name') border-red-700 @enderror" placeholder="Nombre(s)" value="{{old('name')}}">
         </div>
         @error('name')
+            <p class=" text-red-600 flex p-2 gap-2 items-center"> 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+                <span>{{$message}}</span>
+            </p>
+        @enderror
+
+        <div>
+            <input id="lastname" name="lastname" type="lastname" autocomplete="lastname" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('lastname') border-red-700 @enderror" placeholder="Apellidos" value="{{old('lastname')}}">
+        </div>
+        @error('lastname')
             <p class=" text-red-600 flex p-2 gap-2 items-center"> 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
@@ -72,6 +84,11 @@
             <span>{{$message}}</span>
         </p>
         @enderror
+    </div>
+
+    <div class="bg-white px-5 py-3 rounded-lg border">
+        <label for="photo" class="font-bold text-gray-700">Foto de perfil (opcional)</label>
+        <input id="photo" name="photo" type="file" class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('photo') border-red-700 @enderror" placeholder="Apellidos" value="{{old('photo')}}">
     </div>
 
     <div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Auth\Events\Logout;
 
 /*
@@ -27,6 +28,8 @@ Route::post('/register',[RegisterController::class,'store'])->name('register.sto
 Route::post('/logout',[LogoutController::class,'store'])->name('logout');
 
 Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
+
+Route::get('/users',[UserController::class,'index'])->name('user.index');
 
 Route::get('/home',function(){
     return view('dashboard');

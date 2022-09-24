@@ -16,16 +16,27 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->file('photo'));
         $this->validate($request,[
             'name' => 'min:3|max:25|required',
+            'lastname' => 'min:3|required',
             'email' => 'email|unique:users|required',
             'password' => 'required|confirmed|min:5',
             'ci' => 'numeric|required|min:6',
             'phone' => 'numeric',
         ]);
 
+        $fileData = '';
+
+        if($request->hasFile('photo') and ($request->photo->extension() == 'png' or $request->photo->extension() == 'jpg' or $request->photo->extension() == 'bmp')){
+            $fileData = $request->file('photo')->store('uploads','public');
+        }
+        
+
         User::create([
             'name' =>  $request->name, //Str::slug(),
+            'lastname' => $request->lastname,
+            'photo' => $fileData,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'CI' => $request->ci,
@@ -38,7 +49,6 @@ class RegisterController extends Controller
         ]);
 
         return redirect()->route('dashboard');
-
     }
 
 }
