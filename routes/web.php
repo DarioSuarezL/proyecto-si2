@@ -29,8 +29,16 @@ Route::post('/logout',[LogoutController::class,'store'])->name('logout');
 
 Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
 
-Route::get('/users',[UserController::class,'index'])->name('user.index');
 
-Route::get('/home',function(){
+Route::get('/dashboard',function(){
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/dashboard/users',[UserController::class,'index'])->name('user.index');
+Route::get('/dashboard/users/create',[UserController::class,'create'])->name('user.create');
+Route::post('/dashboard/users/create',[UserController::class,'store'])->name('user.store');
+Route::delete('/dashboard/users/{user}',[UserController::class,'destroy'])->name('user.destroy');
+Route::get('/dashboard/users/{user}/edit',[UserController::class,'edit'])->name('user.edit');
+Route::patch('/dashboard/users/{user}',[UserController::class,'update'])->name('user.update');
+
+

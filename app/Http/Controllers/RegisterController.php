@@ -16,14 +16,13 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->file('photo'));
         $this->validate($request,[
             'name' => 'min:3|max:25|required',
             'lastname' => 'min:3|required',
             'email' => 'email|unique:users|required',
             'password' => 'required|confirmed|min:5',
-            'ci' => 'numeric|required|min:6',
-            'phone' => 'numeric',
+            'ci' => 'numeric|required|min:6|unique:users',
+            'phone' => 'numeric|unique:users',
         ]);
 
         $fileData = '';
