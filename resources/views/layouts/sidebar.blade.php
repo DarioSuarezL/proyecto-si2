@@ -43,7 +43,7 @@
                                 <a href="{{ route('user.index') }}">Usuarios</a>
                             </li>
                             <li>
-                                <a href="#">Servicios</a>
+                                <a href="{{route('service.index')}}">Servicios</a>
                             </li>
                             <li>
                                 <a href="#">Tipos de servicio</a>
