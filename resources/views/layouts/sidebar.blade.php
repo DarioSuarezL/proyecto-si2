@@ -40,13 +40,13 @@
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="{{ route('user.index') }}">Usuarios</a>
+                                <a href="{{route('user.index')}}">Usuarios</a>
                             </li>
                             <li>
                                 <a href="{{route('service.index')}}">Servicios</a>
                             </li>
                             <li>
-                                <a href="#">Tipos de servicio</a>
+                                <a href="{{route('service_type.index')}}">Tipos de servicio</a>
                             </li>
                         </ul>
                     </li>

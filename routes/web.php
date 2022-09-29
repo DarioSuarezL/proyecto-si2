@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Service_typeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Auth\Events\Logout;
 
@@ -46,5 +47,12 @@ Route::post('/dashboard/services/create',[ServiceController::class,'store'])->na
 Route::delete('/dashboard/services/{service}',[ServiceController::class,'destroy'])->name('service.destroy');
 Route::get('/dashboard/services/{service}/edit',[ServiceController::class,'edit'])->name('service.edit');
 Route::patch('/dashboard/services/{service}',[ServiceController::class,'update'])->name('service.update');
+
+Route::get('/dashboard/service_types',[Service_typeController::class,'index'])->name('service_type.index');
+Route::get('/dashboard/service_types/create',[Service_typeController::class,'create'])->name('service_type.create');
+Route::post('/dashboard/service_types/create',[Service_typeController::class,'store'])->name('service_type.store');
+Route::delete('/dashboard/service_types/{service_type}',[Service_typeController::class,'destroy'])->name('service_type.destroy');
+Route::get('/dashboard/service_types/{service_type}/edit',[Service_typeController::class,'edit'])->name('service_type.edit');
+Route::patch('/dashboard/service_types/{service_type}',[Service_typeController::class,'update'])->name('service_type.update');
 
 

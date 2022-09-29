@@ -7,7 +7,7 @@
         @csrf
     <div class="-space-y-px rounded-md shadow-sm">
         <div>
-            <input id="name" name="name" type="name" autocomplete="name" required class="relative block w-full appearance-none rounded-none rounded-t-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('name') border-red-700 @enderror" placeholder="Nombre(s)" value="{{old('name')}}">
+            <input id="name" name="name" autocomplete="name" type="text" required class="relative block w-full appearance-none rounded-none rounded-t-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('name') border-red-700 @enderror" placeholder="Nombre(s)" value="{{old('name')}}">
         </div>
         @error('name')
             <p class=" text-red-600 flex p-2 gap-2 items-center"> 
@@ -19,7 +19,7 @@
         @enderror
 
         <div>
-            <input id="lastname" name="lastname" type="lastname" autocomplete="lastname" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('lastname') border-red-700 @enderror" placeholder="Apellidos" value="{{old('lastname')}}">
+            <input id="lastname" name="lastname" type="text"  autocomplete="lastname" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('lastname') border-red-700 @enderror" placeholder="Apellidos" value="{{old('lastname')}}">
         </div>
         @error('lastname')
             <p class=" text-red-600 flex p-2 gap-2 items-center"> 

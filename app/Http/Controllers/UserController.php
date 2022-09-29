@@ -98,10 +98,12 @@ class UserController extends Controller
         if($request->hasFile('photo') and ($request->photo->extension() == 'png' or $request->photo->extension() == 'jpg' or $request->photo->extension() == 'bmp')){
             Storage::delete('public/'.$user->photo); //Borra la foto que es reemplazada
             $fileData = $request->file('photo')->store('uploads','public');
+            $request = request()->except(['_token','_method']);
+            $request['photo'] = $fileData;
+        }else{
+            $request = request()->except(['_token','_method']);
         }
 
-        $request = request()->except(['_token','_method']);
-        $request['photo'] = $fileData;
         User::where('id','=',$user->id)->update($request);
 
         return redirect()->route('user.index');
