@@ -19,20 +19,33 @@
         @enderror
 
         <div>
-            <input id="type_id" name="type_id" autocomplete="type_id" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror" placeholder="Tipo de servicio" value="{{old('type_id')}}">
+            <select name="type_id" id="type_id" class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
+                <option hidden selected value="1"><span class="text-gray-300"> --Seleccione el tipo de servicio-- </span></option>
+                @foreach ($service_types as $service_type)
+                    <option value="{{$service_type->id}}">{{$service_type->name}}</option>
+                @endforeach
+            </select>
         </div>
         @error('type_id')
-            <p class=" text-red-600 flex p-2 gap-2 items-center"> 
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                </svg>
-                <span>{{$message}}</span>
-            </p>
+        <p class=" text-red-600 flex p-2 gap-2 items-center"> 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <span>{{$message}}</span>
+        </p>
         @enderror
 
         <div>
-            <input id="client_id" name="client_id" type="text" autocomplete="client_id" required class="relative block w-full appearance-none rounded-none rounded-b-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('client_id') border-red-700 @enderror" placeholder="ID del cliente" value="{{old('client_id')}}">
+            <select name="client_id" id="client_id" class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
+                <option hidden selected value="1"><span class="text-gray-300"> --Seleccione el cliente-- </span></option>
+                @foreach ($clients as $client)
+                    <option value="{{$client->id}}">{{$client->name." ".$client->lastname}}</option>
+                @endforeach
+            </select>
         </div>
+        {{-- <div>
+            <input id="client_id" name="client_id" type="text" autocomplete="client_id" required class="relative block w-full appearance-none rounded-none rounded-b-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('client_id') border-red-700 @enderror" placeholder="ID del cliente" value="{{old('client_id')}}">
+        </div> --}}
         @error('client_id')
             <p class=" text-red-600 flex p-2 gap-2 items-center"> 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

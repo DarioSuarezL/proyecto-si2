@@ -16,4 +16,14 @@ class Service extends Model
         'status',
     ];
 
+    public function service_type()
+    {
+        return $this->hasOne(Service_type::class,'id','type_id');
+    }
+
+    public function client()
+    {
+        return $this->hasOne(User::class,'id','client_id');
+    }
+
 }

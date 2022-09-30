@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Service;
 use App\Models\Service_type;
 use Illuminate\Http\Request;
@@ -21,7 +22,9 @@ class ServiceController extends Controller
 
     public function create()
     {
-        return view('service.service_create');
+        $data['service_types'] = Service_type::paginate();
+        $data['clients'] = User::paginate();
+        return view('service.service_create',$data);
     }
 
     public function store(Request $request)
@@ -50,7 +53,9 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
-        return view('service.service_edit',compact('service'));
+        $data['service_types'] = Service_type::paginate();
+        $data['clients'] = User::paginate();
+        return view('service.service_edit',compact('service'),$data);
     }
 
     public function update(Request $request,Service $service)

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Service;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service_type extends Model
 {
@@ -14,4 +15,5 @@ class Service_type extends Model
         'description',
         'price',
     ];
+
 }

@@ -16,8 +16,8 @@
         @foreach ($services as $service)
             <tr>
                 <td class="px-3 border text-white">{{$service->description}}</td>
-                <td class="px-3 border text-white">{{$service->type_id}}</td>
-                <td class="px-3 border text-white">{{$service->client_id}}</td>
+                <td class="px-3 border text-white">{{$service->service_type->name}}</td>
+                <td class="px-3 border text-white">{{$service->client->name." ".$service->client->lastname}}</td>
                 <td class="px-3 border text-white">{{$service->status}}</td>
                 <td class="px-3 border text-white">
                     <div class="flex gap-2">

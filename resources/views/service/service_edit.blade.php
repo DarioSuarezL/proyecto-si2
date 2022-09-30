@@ -20,7 +20,12 @@
         @enderror
 
         <div>
-            <input id="type_id" name="type_id" type="text" autocomplete="type_id" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror" placeholder="Tipo de servicio" value="{{$service->type_id}}">
+            <select name="type_id" id="type_id" class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
+                <option hidden selected value="{{$service->service_type->id}}"><span class="text-gray-300">{{$service->service_type->name}}</span></option>
+                @foreach ($service_types as $service_type)
+                    <option value="{{$service_type->id}}">{{$service_type->name}}</option>
+                @endforeach
+            </select>
         </div>
         @error('type_id')
             <p class=" text-white text-bold flex p-2 gap-2 items-center"> 
@@ -32,7 +37,12 @@
         @enderror
 
         <div>
-            <input id="client_id" name="client_id" type="text" autocomplete="client_id" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('client_id') border-red-700 @enderror" placeholder="ID del cliente" value="{{$service->client_id}}">
+            <select name="client_id" id="client_id" class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
+                <option hidden selected value="{{$service->client->id}}"><span class="text-gray-300">{{$service->client->name." ".$service->client->lastname}}</span></option>
+                @foreach ($clients as $client)
+                    <option value="{{$client->id}}">{{$client->name." ".$client->lastname}}</option>
+                @endforeach
+            </select>
         </div>
         @error('client_id')
             <p class=" text-red-600 flex p-2 gap-2 items-center"> 
