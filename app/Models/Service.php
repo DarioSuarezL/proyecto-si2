@@ -18,12 +18,12 @@ class Service extends Model
 
     public function service_type()
     {
-        return $this->hasOne(Service_type::class,'id','type_id');
+        return $this->belongsTo(Service_type::class,'type_id');
     }
 
     public function client()
     {
-        return $this->hasOne(User::class,'id','client_id');
+        return $this->belongsTo(User::class,'client_id');
     }
 
 }

@@ -16,4 +16,9 @@ class Service_type extends Model
         'price',
     ];
 
+    public function services()
+    {
+        return $this->hasMany(Service::class,'type_id');
+    }
+
 }
