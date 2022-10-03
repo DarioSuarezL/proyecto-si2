@@ -29,7 +29,6 @@ class UserSeeder extends Seeder
             'phone' => '65085392',
             'email' => 'dsuarezlazarte@gmail.com',
             'password' => Hash::make('123456'),
-            'role' => 'admin'
         ])->assignRole('admin');
 
         User::create([
@@ -39,7 +38,6 @@ class UserSeeder extends Seeder
             'phone' => '1',
             'email' => 'correo1@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'admin'
         ])->assignRole('admin');
 
         User::create([
@@ -49,27 +47,6 @@ class UserSeeder extends Seeder
             'phone' => '2',
             'email' => 'correo2@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'admin'
-        ])->assignRole('admin');
-
-        User::create([
-            'name' => 'admin3',
-            'lastname' => 'de la empresa',
-            'CI' => '3',
-            'phone' => '3',
-            'email' => 'correo3@correo.com',
-            'password' => Hash::make('123456'),
-            'role' => 'admin'
-        ])->assignRole('admin');
-
-        User::create([
-            'name' => 'admin4',
-            'lastname' => 'de la empresa',
-            'CI' => '4',
-            'phone' => '4',
-            'email' => 'correo4@correo.com',
-            'password' => Hash::make('123456'),
-            'role' => 'admin'
         ])->assignRole('admin');
 
         //****************
@@ -83,7 +60,6 @@ class UserSeeder extends Seeder
             'phone' => '100',
             'email' => 'cliente1@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'cliente'
         ])->assignRole('cliente');
 
         User::create([
@@ -93,7 +69,6 @@ class UserSeeder extends Seeder
             'phone' => '200',
             'email' => 'cliente2@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'cliente'
         ])->assignRole('cliente');
 
         User::create([
@@ -103,27 +78,6 @@ class UserSeeder extends Seeder
             'phone' => '300',
             'email' => 'cliente3@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'cliente'
-        ])->assignRole('cliente');
-
-        User::create([
-            'name' => 'cliente4',
-            'lastname' => 'de la empresa',
-            'CI' => '400',
-            'phone' => '400',
-            'email' => 'cliente4@correo.com',
-            'password' => Hash::make('123456'),
-            'role' => 'cliente'
-        ])->assignRole('cliente');
-
-        User::create([
-            'name' => 'cliente5',
-            'lastname' => 'de la empresa',
-            'CI' => '500',
-            'phone' => '500',
-            'email' => 'cliente5@correo.com',
-            'password' => Hash::make('123456'),
-            'role' => 'cliente'
         ])->assignRole('cliente');
 
     //****************
@@ -137,7 +91,6 @@ class UserSeeder extends Seeder
             'phone' => '10',
             'email' => 'tecnico1@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'tecnico'
         ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
@@ -151,7 +104,6 @@ class UserSeeder extends Seeder
             'phone' => '20',
             'email' => 'tecnico2@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'tecnico'
         ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
@@ -165,39 +117,10 @@ class UserSeeder extends Seeder
             'phone' => '30',
             'email' => 'tecnico3@correo.com',
             'password' => Hash::make('123456'),
-            'role' => 'tecnico'
         ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
             'user_id' => $tec3->id,
-        ]);
-
-        $tec4 = User::create([
-            'name' => 'tecnico4',
-            'lastname' => 'de la empresa',
-            'CI' => '40',
-            'phone' => '40',
-            'email' => 'tecnico4@correo.com',
-            'password' => Hash::make('123456'),
-            'role' => 'tecnico'
-        ])->assignRole('tecnico');
-        Worker::create([
-            'occupied' => '0',
-            'user_id' => $tec4->id,
-        ]);
-
-        $tec5 = User::create([
-            'name' => 'tecnico5',
-            'lastname' => 'de la empresa',
-            'CI' => '50',
-            'phone' => '50',
-            'email' => 'tecnico5@correo.com',
-            'password' => Hash::make('123456'),
-            'role' => 'tecnico'
-        ])->assignRole('tecnico');
-        Worker::create([
-            'occupied' => '0',
-            'user_id' => $tec5->id,
         ]);
 
     }

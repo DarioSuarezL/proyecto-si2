@@ -68,6 +68,15 @@
         @enderror
 
         <div>
+            <select name="role" id="role" class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('role') border-red-700 @enderror">
+                <option hidden selected value="1"><span class="text-gray-300"> --Seleccione el rol-- </span></option>
+                @foreach ($roles as $role)
+                    <option value="{{$role->name}}">{{$role->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div>
             <input id="password" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('email') border-red-700 @enderror" placeholder="Contraseña">
         </div>
         <div>

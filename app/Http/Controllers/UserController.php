@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -22,7 +23,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('user.user_create');
+        $data['roles'] = Role::paginate();
+        return view('user.user_create',$data);
     }
 
     public function store(Request $request)
@@ -51,7 +53,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'CI' => $request->ci,
             'phone' => $request->phone,
-        ]);
+        ])->assignRole($request->role);
 
         return redirect()->route('user.index');
     }

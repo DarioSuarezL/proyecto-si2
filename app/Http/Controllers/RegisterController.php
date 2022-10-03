@@ -40,8 +40,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
             'CI' => $request->ci,
             'phone' => $request->phone,
-            'role' => 'cliente'
-        ])>assignRole('cliente');
+        ])->assignRole('cliente');
 
         auth()->attempt([
             'email' => $request->email,
