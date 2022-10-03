@@ -1,3 +1,4 @@
+@can('service.edit')
 @extends('layouts.sidebar')
 
 @section('contents')
@@ -70,3 +71,4 @@
     </div>
     </form>
 @endsection
+@endcan

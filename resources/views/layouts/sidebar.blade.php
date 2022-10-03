@@ -31,62 +31,70 @@
                     <h3>ElectroServicios</h3>
                     <strong>ES</strong>
                 </div>
-    
+
                 <ul class="list-unstyled components">
                     <li>
+                        <a href="{{route('dashboard')}}">
+                            <i class="fas fa-home"></i>
+                            Inicio
+                        </a>
+
+                        @can('gestionar')
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fa fas fa-user-edit"></i>
                             Gestionar
                         </a>
+                        @endcan
+
                         <ul class="collapse list-unstyled" id="homeSubmenu">
+                            @can('user.index')
                             <li>
                                 <a href="{{route('user.index')}}">Usuarios</a>
                             </li>
+                            @endcan
+                            @can('service.index')
                             <li>
                                 <a href="{{route('service.index')}}">Servicios</a>
                             </li>
+                            @endcan
+                            @can('service_type.index')
                             <li>
                                 <a href="{{route('service_type.index')}}">Tipos de servicio</a>
                             </li>
+                            @endcan
+                            @can('assignment.index')                                
+                            <li>
+                                <a href="{{route('assignment.index')}}">Asignación de trabajadores</a>
+                            </li>
+                            @endcan
                         </ul>
                     </li>
+                    @can('historial')                        
                     <li>
-                        <a href="#">
-                            <i class="fas fa-home"></i>
-                            Inicio
-                        </a>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class="fas fa-copy"></i>
-                            Pages
-                        </a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li>
-                                <a href="#">Page 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-image"></i>
-                            Portfolio
+                        <a href="{{route('service.index')}}">
+                            <i class="fas fa-history"></i>
+                            Historial
                         </a>
                     </li>
+                    @endcan
+                    @can('solicitar')                        
+                    <li>
+                        <a href="{{route('service.create')}}">
+                            <i class="fas fa-store"></i>
+                            Solicitar servicio
+                        </a>
+                    </li>
+                    @endcan
                     <li>
                         <a href="#">
                             <i class="fas fa-question"></i>
-                            FAQ
+                            Preguntas frecuentes
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="https://api.whatsapp.com/send?phone=65085392&text=Buenas%20tardes,%20tengo%20algunas%20consultas...">
                             <i class="fas fa-paper-plane"></i>
-                            Contact
+                            Contacto
                         </a>
                     </li>
                 </ul>
@@ -96,7 +104,7 @@
                         <a href="#" class="download">Descarga nuestra app</a>
                     </li>
                     <li>
-                        <a href="#" class="article">Ajustes</a>
+                        <a href="{{route('user.edit',auth()->user())}}" class="article">Ajustes</a>
                     </li>
                 </ul>
             </nav>
@@ -121,7 +129,7 @@
                                     <a class="nav-link" href="#">{{auth()->user()->name}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Ajustes</a>
+                                    <a class="nav-link" href="{{route('user.edit',auth()->user())}}">Ajustes</a>
                                 </li>
                                 
                                 {{-- ESTO SIRVE PARA QUE NO HAYA VULNERABILIDAD --}}

@@ -60,4 +60,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Worker::class);
     }
+
+    public function assignment()
+    {
+        return $this->hasOne(Assignment::class,'tech_id');
+    }
+
 }

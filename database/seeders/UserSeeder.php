@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'email' => 'dsuarezlazarte@gmail.com',
             'password' => Hash::make('123456'),
             'role' => 'admin'
-        ]);
+        ])->assignRole('admin');
 
         User::create([
             'name' => 'admin1',
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'email' => 'correo1@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'admin'
-        ]);
+        ])->assignRole('admin');
 
         User::create([
             'name' => 'admin2',
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             'email' => 'correo2@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'admin'
-        ]);
+        ])->assignRole('admin');
 
         User::create([
             'name' => 'admin3',
@@ -60,7 +60,7 @@ class UserSeeder extends Seeder
             'email' => 'correo3@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'admin'
-        ]);
+        ])->assignRole('admin');
 
         User::create([
             'name' => 'admin4',
@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
             'email' => 'correo4@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'admin'
-        ]);
+        ])->assignRole('admin');
 
         //****************
         //clientes
@@ -84,7 +84,7 @@ class UserSeeder extends Seeder
             'email' => 'cliente1@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'cliente'
-        ]);
+        ])->assignRole('cliente');
 
         User::create([
             'name' => 'cliente2',
@@ -94,7 +94,7 @@ class UserSeeder extends Seeder
             'email' => 'cliente2@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'cliente'
-        ]);
+        ])->assignRole('cliente');
 
         User::create([
             'name' => 'cliente3',
@@ -104,7 +104,7 @@ class UserSeeder extends Seeder
             'email' => 'cliente3@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'cliente'
-        ]);
+        ])->assignRole('cliente');
 
         User::create([
             'name' => 'cliente4',
@@ -114,7 +114,7 @@ class UserSeeder extends Seeder
             'email' => 'cliente4@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'cliente'
-        ]);
+        ])->assignRole('cliente');
 
         User::create([
             'name' => 'cliente5',
@@ -124,7 +124,7 @@ class UserSeeder extends Seeder
             'email' => 'cliente5@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'cliente'
-        ]);
+        ])->assignRole('cliente');
 
     //****************
     //técnicos
@@ -138,7 +138,7 @@ class UserSeeder extends Seeder
             'email' => 'tecnico1@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'tecnico'
-        ]);
+        ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
             'user_id' => $tec1->id,
@@ -152,7 +152,7 @@ class UserSeeder extends Seeder
             'email' => 'tecnico2@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'tecnico'
-        ]);
+        ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
             'user_id' => $tec2->id,
@@ -166,7 +166,7 @@ class UserSeeder extends Seeder
             'email' => 'tecnico3@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'tecnico'
-        ]);
+        ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
             'user_id' => $tec3->id,
@@ -180,7 +180,7 @@ class UserSeeder extends Seeder
             'email' => 'tecnico4@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'tecnico'
-        ]);
+        ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
             'user_id' => $tec4->id,
@@ -194,7 +194,7 @@ class UserSeeder extends Seeder
             'email' => 'tecnico5@correo.com',
             'password' => Hash::make('123456'),
             'role' => 'tecnico'
-        ]);
+        ])->assignRole('tecnico');
         Worker::create([
             'occupied' => '0',
             'user_id' => $tec5->id,

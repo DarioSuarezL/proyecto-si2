@@ -1,3 +1,5 @@
+@can('user.edit')
+
 @extends('layouts.sidebar')
 
 @section('contents')
@@ -91,3 +93,4 @@
     </div>
     </form>
 @endsection
+@endcan

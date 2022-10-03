@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('users');
             // añadir gps y estado (en desarrollo)
+            $table->unsignedInteger('number_of_workers')->nullable();
             $table->string('status');
             $table->timestamps();
         });

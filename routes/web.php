@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\Service_typeController;
-use App\Http\Controllers\UserController;
-use Illuminate\Auth\Events\Logout;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,9 @@ Route::delete('/dashboard/service_types/{service_type}',[Service_typeController:
 Route::get('/dashboard/service_types/{service_type}/edit',[Service_typeController::class,'edit'])->name('service_type.edit');
 Route::patch('/dashboard/service_types/{service_type}',[Service_typeController::class,'update'])->name('service_type.update');
 
-
+Route::get('/dashboard/assignments',[AssignmentController::class,'index'])->name('assignment.index');
+Route::get('/dashboard/assignments/create',[AssignmentController::class,'create'])->name('assignment.create');
+Route::post('/dashboard/assignments/create',[AssignmentController::class,'store'])->name('assignment.store');
+Route::delete('/dashboard/assignments/{assignment}',[AssignmentController::class,'destroy'])->name('assignment.destroy');
+Route::get('/dashboard/assignments/{assignment}/edit',[AssignmentController::class,'edit'])->name('assignment.edit');
+Route::patch('/dashboard/assignments/{assignment}',[AssignmentController::class,'update'])->name('assignment.update');

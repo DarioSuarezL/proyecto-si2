@@ -14,6 +14,7 @@ class Service extends Model
         'type_id',
         'client_id',
         'status',
+        'number_of_workers'
     ];
 
     public function service_type()
@@ -24,6 +25,11 @@ class Service extends Model
     public function client()
     {
         return $this->belongsTo(User::class,'client_id');
+    }
+
+    public function assignment()
+    {
+        return $this->hasOne(Assignment::class);
     }
 
 }

@@ -1,3 +1,4 @@
+@can('service.create')
 @extends('layouts.sidebar')
 
 @section('contents')
@@ -35,14 +36,25 @@
         </p>
         @enderror
 
+        @role('admin')
         <div>
-            <select name="client_id" id="client_id" class="relative block w-full appearance-none rounded-none border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
+            <select name="client_id" id="client_id" class="relative block w-full appearance-none rounded-none rounded-b-sm border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
                 <option hidden selected value="1"><span class="text-gray-300"> --Seleccione el cliente-- </span></option>
                 @foreach ($clients as $client)
                     <option value="{{$client->id}}">{{$client->name." ".$client->lastname}}</option>
                 @endforeach
             </select>
         </div>
+        @else
+        <div>
+            <select hidden name="client_id" id="client_id" class="relative block w-full appearance-none rounded-none rounded-b-sm border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
+                <option hidden selected value={{auth()->user()->id}}><span class="text-gray-300"> --Seleccione el cliente-- </span></option>
+                @foreach ($clients as $client)
+                    <option value="{{$client->id}}">{{$client->name." ".$client->lastname}}</option>
+                @endforeach
+            </select>
+        </div>
+        @endrole
         {{-- <div>
             <input id="client_id" name="client_id" type="text" autocomplete="client_id" required class="relative block w-full appearance-none rounded-none rounded-b-md border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('client_id') border-red-700 @enderror" placeholder="ID del cliente" value="{{old('client_id')}}">
         </div> --}}
@@ -72,3 +84,4 @@
     </form>
 
 @endsection
+@endcan

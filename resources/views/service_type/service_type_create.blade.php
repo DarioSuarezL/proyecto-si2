@@ -1,3 +1,4 @@
+@can('service_type.destroy')
 @extends('layouts.sidebar')
 
 @section('contents')
@@ -60,3 +61,4 @@
     </form>
 
 @endsection
+@endcan

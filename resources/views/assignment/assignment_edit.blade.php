@@ -1,0 +1,3 @@
+@can('assignment.edit')
+
+@endcan

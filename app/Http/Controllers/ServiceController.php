@@ -16,7 +16,12 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $data['services'] = Service::paginate();
+        if (auth()->user()->hasRole('cliente')){
+            $data['services'] = auth()->user()->services;
+        }else{
+            $data['services'] = Service::paginate();
+        }
+
         return view('service.service_index',$data);
     }
 
@@ -39,6 +44,7 @@ class ServiceController extends Controller
             'description' => $request->description,
             'type_id' => $request->type_id,
             'client_id' => $request->client_id,
+            'number_of_workers' => '0',
             'status' => 'No atendido'
         ]);
 
