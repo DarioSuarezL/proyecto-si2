@@ -16,9 +16,12 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        //ROLES ESPECIALES
         $gestionar = Permission::create(['name' => 'gestionar']);
         $historial = Permission::create(['name' => 'historial']);
         $solicitar = Permission::create(['name' => 'solicitar']);
+        $assignment_finalizar = Permission::create(['name' => 'assignment.setEnd']);
+        //******************************************************** */
 
         $user_index = Permission::create(['name' => 'user.index']);
         $user_create = Permission::create(['name' => 'user.create']);
@@ -47,6 +50,7 @@ class RoleSeeder extends Seeder
         $assignment_destroy = Permission::create(['name' => 'assignment.destroy']);
         $assignment_edit = Permission::create(['name' => 'assignment.edit']);
         $assignment_update = Permission::create(['name' => 'assignment.update']);
+        
 
                 //ROLES
 
@@ -86,9 +90,10 @@ class RoleSeeder extends Seeder
             'name' => 'tecnico'
         ])->syncPermissions([
             $gestionar,
-            $service_index,
+            $assignment_index,
             $user_edit,
             $user_update,
+            $assignment_finalizar,
         ]);
 
         $role3 = Role::create([

@@ -20,7 +20,7 @@
 
     <div>
         <select name="service_id" id="service_id" class="relative block w-full appearance-none rounded-none rounded-b-sm border px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm @error('type_id') border-red-700 @enderror">
-            <option hidden selected value="1"><span class="text-gray-300"> --Seleccione el técnico-- </span></option>
+            <option hidden selected value="1"><span class="text-gray-300"> --Seleccione el servicio-- </span></option>
             @foreach ($services as $service)
                 <option value="{{$service->id}}">{{$service->description}}</option>
             @endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Worker;
 use App\Models\Service;
 use App\Models\Service_type;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ServiceController extends Controller
         }else{
             $data['services'] = Service::paginate();
         }
-
+        
         return view('service.service_index',$data);
     }
 

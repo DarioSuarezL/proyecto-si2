@@ -11,6 +11,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\Service_typeController;
+use App\Models\Assignment;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,5 @@ Route::post('/dashboard/assignments/create',[AssignmentController::class,'store'
 Route::delete('/dashboard/assignments/{assignment}',[AssignmentController::class,'destroy'])->name('assignment.destroy');
 Route::get('/dashboard/assignments/{assignment}/edit',[AssignmentController::class,'edit'])->name('assignment.edit');
 Route::patch('/dashboard/assignments/{assignment}',[AssignmentController::class,'update'])->name('assignment.update');
+//Ruta especial
+Route::get('/dashboard/assignments/{assignment}/end',[AssignmentController::class,'setEnd'])->name('assignment.setEnd');

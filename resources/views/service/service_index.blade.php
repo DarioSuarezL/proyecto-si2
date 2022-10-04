@@ -25,7 +25,9 @@
                 <td class="px-3 border text-white">
                     <div class="flex gap-2">
                         @can('service.edit')
+                        @if ($service->status != 'Finalizado')
                         <a href="{{route('service.edit',$service)}}" class="border px-3 py-1 my-1 bg-blue-900" >Editar</a>
+                        @endif
                         @endcan
                         @can('service.destroy')    
                         <form action="{{route('service.destroy',$service)}}" method="POST">

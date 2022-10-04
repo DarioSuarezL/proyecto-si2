@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('description');
             $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('service_types');
+            $table->foreign('type_id')->references('id')->on('service_types')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             // añadir gps y estado (en desarrollo)
             $table->unsignedInteger('number_of_workers')->nullable();
             $table->string('status');

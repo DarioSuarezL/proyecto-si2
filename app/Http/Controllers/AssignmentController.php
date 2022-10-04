@@ -17,14 +17,18 @@ class AssignmentController extends Controller
 
     public function index()
     {
-        $data['assignments'] = Assignment::paginate();
+        if(auth()->user()->hasRole('tecnico')){
+            $data['assignments'] = auth()->user()->worker->assignments;
+        }else{
+            $data['assignments'] = Assignment::paginate();
+        }
         return view('assignment.assignment_index',$data);
     }
 
     public function create()
     {
         $data['techs'] = Worker::where('occupied','!=','1')->paginate();
-        $data['services'] = Service::paginate();
+        $data['services'] = Service::where('status','!=','Finalizado')->paginate();
         return view('assignment.assignment_create',$data);
     }
 
@@ -53,18 +57,49 @@ class AssignmentController extends Controller
         return redirect()->route('assignment.index');
     }
 
-    public function destroy()
+    public function destroy(Assignment $assignment)
     {
+        $worker = Worker::find($assignment->tech_id);
+        $worker->occupied = '0';
+        $worker->save();
+
+        $service = Service::find($assignment->service_id);
+        $service->number_of_workers--;
+        if($service->number_of_workers == 0)
+        {
+            $service->status = 'No atendido';
+        }else{
+            $service->status = "En proceso"." - ".$service->number_of_workers." tecnico(s)";
+        }
+        $service->save();
         
+        Assignment::destroy($assignment->id);
+        return redirect()->route('assignment.index');
     }
 
-    public function edit()
+    public function edit(Assignment $assignment)
     {
-        
+        $data['techs'] = Worker::where('occupied','!=','1')->paginate();
+        $data['services'] = Service::paginate();
+        return view('assignment.assignment_edit',compact('assignment'));
     }
 
-    public function update()
+    public function update(Request $request, Assignment $assignment)
     {
+        $this->validate($request,[
+
+        ]);
+    }
+
+    public function setEnd(Assignment $assignment){
+        $worker = Worker::find(auth()->user()->worker->id);
+        $worker->occupied = '0';
+        $worker->save();
         
+        $service = Service::find($assignment->service->id);
+        $service->status = 'Finalizado';
+        $service->save();
+
+        return redirect()->route('assignment.index');
     }
 }
