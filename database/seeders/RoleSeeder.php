@@ -101,12 +101,8 @@ class RoleSeeder extends Seeder
         ])->syncPermissions([
             $historial,
             $solicitar,
-            $user_edit,
-            $user_update,
             $service_index,
             $service_create,
-            $service_edit,
-            $service_update,
         ]);;
 
 
