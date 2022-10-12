@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //ROLES ESPECIALES
+        //PERMISOS ESPECIALES
         $gestionar = Permission::create(['name' => 'gestionar']);
         $historial = Permission::create(['name' => 'historial']);
         $solicitar = Permission::create(['name' => 'solicitar']);

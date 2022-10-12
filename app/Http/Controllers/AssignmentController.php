@@ -18,7 +18,7 @@ class AssignmentController extends Controller
     public function index()
     {
         if(auth()->user()->hasRole('tecnico')){
-            $data['assignments'] = auth()->user()->worker->assignments;
+            $data['assignments'] = auth()->user()->worker->assignments->paginate(5);
         }else{
             $data['assignments'] = Assignment::paginate();
         }
