@@ -43,6 +43,7 @@
                 </td>
             </tr>
         @endforeach
+        <div>{{$services->links('pagination::tailwind')}}</div>
     </table>
 @endsection
 @endcan

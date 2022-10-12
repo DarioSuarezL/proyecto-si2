@@ -48,6 +48,7 @@
             </td>
         </tr>
     @endforeach
+    <div>{{$assignments->links('pagination::tailwind')}}</div>
 </table>
 @endsection
 @endcan

@@ -19,7 +19,7 @@
             <th class="px-3 border text-white">Acciones</th>
         </tr>
         @foreach ($users as $user)
-            <tr>
+            <tr class="">
                 <td class="px-3 border text-white">
                     <img src="{{asset('storage'.'/'.$user->photo)}}" alt="foto de perfil" width="150" height="150">
                 </td>
@@ -47,6 +47,7 @@
                 </td>
             </tr>
         @endforeach
+        <div>{{$users->links('pagination::tailwind')}}</div>
     </table>
 @endsection
 @endcan

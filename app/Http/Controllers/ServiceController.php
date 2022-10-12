@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function index()
     {
         if (auth()->user()->hasRole('cliente')){
-            $data['services'] = auth()->user()->services;
+            $data['services'] = auth()->user()->services->paginate(5);
         }else{
             $data['services'] = Service::paginate();
         }

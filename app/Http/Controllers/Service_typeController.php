@@ -14,7 +14,7 @@ class Service_typeController extends Controller
 
     public function index()
     {
-        $data['service_types'] = Service_type::paginate();
+        $data['service_types'] = Service_type::paginate(5);
         return view('service_type.service_type_index',$data);
     }
 
